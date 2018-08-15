@@ -9,26 +9,16 @@
       [null, 'Google', '*', 'https://encrypted.google.com', '/search?q={}', '#111'],
       ['Work', 'Drive', 'd', 'https://drive.google.com', '/drive/search?q={}', '#4285f4'],
       ['Work', 'GitHub', 'g', 'https://github.com', '/search?q={}', '#333'],
-      ['Work', 'Inbox', 'i', 'https://inbox.google.com', '/search/{}', '#4285f4'],
-      ['Work', 'Keep', 'k', 'https://keep.google.com', '/#search/text={}', '#fb0'],
-      ['Lurk', 'Hunt', 'H', 'https://www.producthunt.com', '/search?q={}', '#da552f'],
+      ['Work', 'ZenHub', 'z', 'https://github.com/digithinkit/bloomstack#boards?repos=128753413,80534857', '', '#333'],
+      ['Work', 'Nuclino', 'n', 'https://app.nuclino.com/DigiThinkIt/BloomStack', '', '#333'],
+      ['Lurk', 'Hunt', 'H', 'https://producthunt.com', '/search?q={}', '#da552f'],
       ['Lurk', 'Photos', 'p', 'https://photos.google.com', '/search/{}', '#34a853'],
-      ['Lurk', 'Reddit', 'r', 'https://www.reddit.com', '/search?q={}', '#5f99cf'],
-      ['Lurk', 'Unsplash', 'u', 'https://unsplash.com/new', '/search/{}', '#000'],
-      ['Listen', 'Hypem', 'h', 'https://hypem.com/popular', '/search/{}', '#83c441'],
-      ['Listen', 'Line Radio', 'l', 'https://linerad.io', '/#{}', '#39CCCC'],
-      ['Listen', 'Play Music', 'm', 'https://play.google.com/music/listen#/all', '/music/listen#/sr/{}', '#FF4C20'],
-      ['Listen', 'SoundCloud', 's', 'https://soundcloud.com/discover', '/search?q={}', '#ff8800'],
-      ['Watch', 'Netflix', 'n', 'https://www.netflix.com/browse', '/search?q={}', '#e50914'],
-      ['Watch', 'Twitch', 't', 'https://www.twitch.tv/directory/following', null, '#6441a5'],
-      ['Watch', 'YouTube', 'y', 'https://youtube.com/feed/subscriptions', '/results?search_query={}', '#cd201f'],
-      ['Learn', 'Academy', 'a', 'https://www.khanacademy.org', '/search?page_search_query={}', '#9cb443'],
-      ['Learn', 'Coursera', 'c', 'https://www.coursera.org', '/courses?query={}', '#407ED7'],
-      ['Learn', 'Egghead', 'e', 'https://egghead.io', '/search?q={}', '#171C23'],
-      ['Download', '7digital', '7', 'https://us.7digital.com', '/search?q={}', '#07606e'],
-      ['Download', 'RARBG', 'R', 'https://rarbg.to', '/torrents.php?search={}', '#00d1b2'],
-      ['Download', 'Pirate Bay', 'b', 'https://thepiratebay.org', '/search/{}', '#4c4132'],
-      ['Download', 'YTS', 'Y', 'https://yts.am/browse-movies/all/1080p/all/7/latest', '/browse-movies/{}', '#2f2f2f'],
+      ['Lurk', 'Reddit', 'r', 'https://reddit.com', '/search?q={}', '#5f99cf'],
+      ['Chill', 'Play Music', 'm', 'https://play.google.com/music/listen#/all', '/music/listen#/sr/{}', '#FF4C20'],
+      ['Chill', 'YouTube', 'y', 'https://youtube.com/feed/subscriptions', '/results?search_query={}', '#cd201f'],
+      ['Download', 'Sonarr', 'sd', 'https://sonarr.falk.host', '', '#36C6F4'],
+      ['Download', 'Radarr', 'rd', 'https://radarr.falk.host', '', '#FFC230'],
+      ['Download', 'Ombi', 'om', 'https://ombi.falk.host', '', '#DF691A'],
     ],
 
     // give suggestions as you type
@@ -41,18 +31,24 @@
     // "Default" suggestions come from CONFIG.defaultSuggestions
     // "DuckDuckGo" suggestions come from the duck duck go search api
     // "History" suggestions come from your previously entered queries
-    influencers: [
-      { name: 'Default', limit: 4 },
-      { name: 'History', limit: 1 },
-      { name: 'DuckDuckGo', limit: 4 },
+    influencers: [{
+        name: 'Default',
+        limit: 4
+      },
+      {
+        name: 'History',
+        limit: 1
+      },
+      {
+        name: 'DuckDuckGo',
+        limit: 4
+      },
     ],
 
     // default search suggestions for the specified queries
     defaultSuggestions: {
       'd': ['d/u/1'],
       'g': ['g/issues', 'g/pulls', 'gist.github.com', 'g/cadejscroggins'],
-      'i': ['i/u/1'],
-      'k': ['k/u/1'],
       'l': ['l/#electronic+chill', 'l/#synthwave+chillwave', 'l/#focus+instrumental', 'l/#piano+sleep'],
       'm': ['m/music/listen?u=1#/all'],
       'p': ['p/u/1'],
@@ -102,8 +98,8 @@
   @import url('https://fonts.googleapis.com/css?family=Lato:400,900');
 
   :root {
-    --color0: #fff;
-    --color15: #111;
+    --color0: #111;
+    --color15: #fff;
   }
 
   body {
@@ -163,7 +159,7 @@
     padding: 1em;
     background-color: var(--color15);
     transition: background-color .5s;
-    color: var(--color0);
+    color: var(--color15);
     box-sizing: border-box;
     z-index: 2;
   }
@@ -397,19 +393,32 @@
       const shift = e.shiftKey;
 
       switch (e.which) {
-        case 8: return 'backspace';
-        case 9: return shift ? 's-tab' : 'tab';
-        case 13: return 'enter';
-        case 16: return 'shift';
-        case 17: return 'ctrl';
-        case 18: return 'alt';
-        case 27: return 'escape';
-        case 38: return 'up';
-        case 40: return 'down';
-        case 46: return 'delete';
-        case 78: return ctrl ? 'c-n' : 'n';
-        case 80: return ctrl ? 'c-p' : 'n';
-        case 91: return 'super';
+        case 8:
+          return 'backspace';
+        case 9:
+          return shift ? 's-tab' : 'tab';
+        case 13:
+          return 'enter';
+        case 16:
+          return 'shift';
+        case 17:
+          return 'ctrl';
+        case 18:
+          return 'alt';
+        case 27:
+          return 'escape';
+        case 38:
+          return 'up';
+        case 40:
+          return 'down';
+        case 46:
+          return 'delete';
+        case 78:
+          return ctrl ? 'c-n' : 'n';
+        case 80:
+          return ctrl ? 'c-p' : 'n';
+        case 91:
+          return 'super';
       }
     },
   };
@@ -529,7 +538,11 @@
     }
 
     _getSearchPrefix(query) {
-      const { isSearch, key, split } = this._parseQuery(query);
+      const {
+        isSearch,
+        key,
+        split
+      } = this._parseQuery(query);
       return isSearch ? `${key}${split} ` : false;
     }
 
@@ -539,7 +552,9 @@
   }
 
   class DefaultInfluencer extends Influencer {
-    constructor({ defaultSuggestions }) {
+    constructor({
+      defaultSuggestions
+    }) {
       super(...arguments);
       this._defaultSuggestions = defaultSuggestions;
     }
@@ -553,12 +568,16 @@
   }
 
   class DuckDuckGoInfluencer extends Influencer {
-    constructor({ queryParser }) {
+    constructor({
+      queryParser
+    }) {
       super(...arguments);
     }
 
     getSuggestions(rawQuery) {
-      const { query } = this._parseQuery(rawQuery);
+      const {
+        query
+      } = this._parseQuery(rawQuery);
       if (!query) return Promise.resolve([]);
 
       return new Promise(resolve => {
@@ -802,7 +821,10 @@
     }
 
     parse(query) {
-      const res = { query: query, split: null };
+      const res = {
+        query: query,
+        split: null
+      };
 
       if (query.match(this._urlRegex)) {
         const hasProtocol = query.match(this._protocolRegex);
@@ -934,8 +956,11 @@
         case 'ctrl':
         case 'enter':
         case 'shift':
-        case 'super': return;
-        case 'escape': this.hide(); return;
+        case 'super':
+          return;
+        case 'escape':
+          this.hide();
+          return;
       }
 
       this.show();
@@ -944,7 +969,9 @@
     _handleInput() {
       const newQuery = this._inputEl.value;
       const isHelp = newQuery === '?';
-      const { isKey } = this._queryParser.parse(newQuery);
+      const {
+        isKey
+      } = this._queryParser.parse(newQuery);
       this._inputElVal = newQuery;
       this._setBackgroundFromQuery(newQuery);
       if (!newQuery || isHelp) this.hide();
@@ -982,7 +1009,9 @@
 
     _setBackgroundFromQuery(query) {
       if (!this._colors) return;
-      const { color } = this._queryParser.parse(query);
+      const {
+        color
+      } = this._queryParser.parse(query);
       this._formEl.style.backgroundColor = color;
     }
 
