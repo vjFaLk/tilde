@@ -7,10 +7,12 @@
     // if none of the specified keys are matched, the '*' key is used
     commands: [
       [null, 'Google', '*', 'https://encrypted.google.com', '/search?q={}', '#111'],
-      ['Work', 'Drive', 'd', 'https://drive.google.com', '/drive/search?q={}', '#4285f4'],
+      ['Work', 'Drive', 'd', 'https://drive.google.com', '/drive/search?q={}', '#4486F4'],
       ['Work', 'GitHub', 'g', 'https://github.com', '/search?q={}', '#333'],
-      ['Work', 'ZenHub', 'z', 'https://github.com/digithinkit/bloomstack#boards?repos=128753413,80534857', '', '#333'],
-      ['Work', 'Nuclino', 'n', 'https://app.nuclino.com/DigiThinkIt/BloomStack', '', '#333'],
+      ['Work', 'ZenHub', 'z', 'https://github.com/digithinkit/bloomstack#boards?repos=128753413,80534857', '',
+        '#333'
+      ],
+      ['Work', 'Nuclino', 'n', 'https://app.nuclino.com/DigiThinkIt/BloomStack', '', '#F92352'],
       ['Lurk', 'Hunt', 'H', 'https://producthunt.com', '/search?q={}', '#da552f'],
       ['Lurk', 'Photos', 'p', 'https://photos.google.com', '/search/{}', '#34a853'],
       ['Lurk', 'Reddit', 'r', 'https://reddit.com', '/search?q={}', '#5f99cf'],
@@ -18,11 +20,13 @@
       ['Chill', 'YouTube', 'y', 'https://youtube.com/feed/subscriptions', '/results?search_query={}', '#cd201f'],
       ['Download', 'Sonarr', 'sd', 'https://sonarr.falk.host', '', '#36C6F4'],
       ['Download', 'Radarr', 'rd', 'https://radarr.falk.host', '', '#FFC230'],
-      ['Download', 'Ombi', 'om', 'https://ombi.falk.host', '', '#DF691A'],
+ ['Download', 'Ombi', 'om', 'https://ombi.falk.host', '', '#DF691A'],
+ ['Download', 'PassThePopcorn', 'ptp', 'https://passthepopcorn.me', '/torrents.php?order_by=relevance&searchstr={}',
+'#191919'],
     ],
 
     // give suggestions as you type
-    suggestions: true,
+    suggestions: false,
 
     // max amount of suggestions that will ever be displayed
     suggestionsLimit: 4,
@@ -48,8 +52,7 @@
     // default search suggestions for the specified queries
     defaultSuggestions: {
       'd': ['d/u/1'],
-      'g': ['g/issues', 'g/pulls', 'gist.github.com', 'g/cadejscroggins'],
-      'l': ['l/#electronic+chill', 'l/#synthwave+chillwave', 'l/#focus+instrumental', 'l/#piano+sleep'],
+      'g': ['g/issues', 'g/pulls', 'gist.github.com', 'g/vjfalk'],
       'm': ['m/music/listen?u=1#/all'],
       'p': ['p/u/1'],
       'r': ['r/r/unixporn', 'r/r/startpages', 'r/r/webdev', 'r/r/technology'],
@@ -157,7 +160,7 @@
 
   #search-form {
     padding: 1em;
-    background-color: var(--color15);
+    background-color: var(--color0);
     transition: background-color .5s;
     color: var(--color15);
     box-sizing: border-box;
