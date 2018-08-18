@@ -32,7 +32,7 @@
     suggestions: true,
 
     // max amount of suggestions that will ever be displayed
-    suggestionsLimit: 4,
+    suggestionsLimit: 8,
 
     // the order and limit for each suggestion influencer
     // "Default" suggestions come from CONFIG.defaultSuggestions
@@ -40,11 +40,11 @@
     // "History" suggestions come from your previously entered queries
     influencers: [{
         name: 'Default',
-        limit: 4
+        limit: 1
       },
       {
         name: 'History',
-        limit: 1
+        limit: 4
       },
       {
         name: 'DuckDuckGo',
@@ -54,12 +54,7 @@
 
     // default search suggestions for the specified queries
     defaultSuggestions: {
-      'd': ['d/u/1'],
       'g': ['g/issues', 'g/pulls', 'gist.github.com', 'g/vjfalk'],
-      'm': ['m/music/listen?u=1#/all'],
-      'p': ['p/u/1'],
-      'r': ['r/r/unixporn', 'r/r/startpages', 'r/r/webdev', 'r/r/technology'],
-      's': ['s/you/likes', 's/discover/the-upload'],
     },
 
     // instantly redirect when a key is matched
@@ -101,7 +96,7 @@
 <title>~</title>
 
 <style type="text/css">
-  @import url('https://fonts.googleapis.com/css?family=Lato:400,900');
+  @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700');
 
   :root {
     --color0: #111;
@@ -118,7 +113,7 @@
     padding: 0;
     transition: background-color .2s;
     background-color: var(--color0);
-    font-family: Lato, sans-serif;
+    font-family: 'Fira Mono', sans-serif;
     color: var(--color15);
   }
 
@@ -134,7 +129,7 @@
     outline: 0;
     background-color: transparent;
     color: inherit;
-    font-family: Lato, sans-serif;
+    font-family: 'Fira Mono', sans-serif;
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
